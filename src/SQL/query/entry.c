@@ -54,7 +54,9 @@ void CustomQuery(char* server, char* database, char* link, char* impersonate, ch
 	PrintQueryResults(stmt, TRUE);
 
 END:
-	ODBC32$SQLCloseCursor(stmt);
+	if (stmt != NULL) {
+		ODBC32$SQLCloseCursor(stmt);
+	}
 	DisconnectSqlServer(env, dbc, stmt);
 }
 
