@@ -6,13 +6,13 @@
 
 void CustomQuery(char* server, char* database, char* link, char* impersonate, char* query)
 {
-    SQLHENV env		= NULL;
-    SQLHSTMT stmt 	= NULL;
+	SQLHENV env		= NULL;
+	SQLHSTMT stmt 	= NULL;
 	SQLHDBC dbc 	= NULL;
 	SQLRETURN ret;
 
 
-    if (link == NULL)
+	if (link == NULL)
 	{
 		dbc = ConnectToSqlServer(&env, server, database);
 	}
@@ -21,7 +21,7 @@ void CustomQuery(char* server, char* database, char* link, char* impersonate, ch
 		dbc = ConnectToSqlServer(&env, server, NULL);
 	}
 
-    if (dbc == NULL) {
+	if (dbc == NULL) {
 		goto END;
 	}
 
